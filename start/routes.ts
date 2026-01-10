@@ -14,7 +14,6 @@ router.post('/auth/login', [AuthController, 'login'])
 
 router.get('/profissionais', [ProfissionaisController, 'index'])
 router.get('/profissionais/:id', [ProfissionaisController, 'show'])
-// start/routes.ts
 router.put('/profissionais', [ProfissionaisController, 'update'])
 router.get('/disponibilidades/:profissional_id', [DisponibilidadesController, 'show'])
 

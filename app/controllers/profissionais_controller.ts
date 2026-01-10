@@ -30,7 +30,7 @@ export default class ProfissionaisController {
     
     const data = await request.validateUsing(createProfissionalValidator)
     
-    // Busca o profissional (deve existir por causa do registro)
+   
     const profissional = await Profissional.query()
       .where('userId', usuario.id)
       .first()
@@ -39,7 +39,6 @@ export default class ProfissionaisController {
       return response.notFound('Perfil profissional não encontrado')
     }
     
-    // ATUALIZA especialidade
     profissional.merge(data)
     await profissional.save()
     
@@ -88,13 +87,11 @@ async store({ request, response, auth }: HttpContext) {
     
     const data = await request.validateUsing(createProfissionalValidator)
     
-    // Busca ou cria perfil profissional
     let profissional = await Profissional.query()
       .where('userId', usuario.id)
       .first()
     
     if (profissional) {
-      // Se já existe, ATUALIZA
       profissional.merge(data)
       await profissional.save()
       
@@ -103,7 +100,6 @@ async store({ request, response, auth }: HttpContext) {
         profissional: profissional
       })
     } else {
-      // Se não existe, CRIA
       profissional = await Profissional.create({
         userId: usuario.id,
         ...data
