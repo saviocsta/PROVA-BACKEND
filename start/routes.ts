@@ -20,20 +20,20 @@ router.get('/disponibilidades/:profissional_id', [DisponibilidadesController, 's
 
 router.group(() => {
  
-  router.post('/profissionais', [ProfissionaisController, 'store'])
+router.post('/profissionais', [ProfissionaisController, 'store'])
   
   
-  router.post('/disponibilidades', [DisponibilidadesController, 'store'])
+router.post('/disponibilidades', [DisponibilidadesController, 'store'])
   
   
 
-  router.post('/consultas', [ConsultasController, 'store'])
-  router.get('/consultas', [ConsultasController, 'index'])
-  router.put('/consultas/:id', [ConsultasController, 'update'])
-  router.delete('/consultas/:id', [ConsultasController, 'destroy'])
+router.post('/consultas', [ConsultasController, 'store'])
+router.get('/consultas', [ConsultasController, 'index'])
+router.put('/consultas/:id', [ConsultasController, 'update'])
+router.delete('/consultas/:id', [ConsultasController, 'destroy'])
   
 
-  router.get('/pacientes/me', [PacientesController, 'show'])
-  router.put('/pacientes/me', [PacientesController, 'update'])
+router.get('/pacientes/me', [PacientesController, 'show'])
+router.put('/pacientes/me', [PacientesController, 'update'])
   
 }).use(middleware.auth())

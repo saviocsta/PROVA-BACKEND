@@ -21,12 +21,12 @@ async register({ request, response }: HttpContext) {
       tipo: data.tipo
     })
     
+    
     if (data.tipo === 'paciente') {
       await Paciente.create({
         userId: usuario.id
       })
     } else if (data.tipo === 'profissional') {
-  
       await Profissional.create({
         userId: usuario.id,
         especialidade: 'Especialidade não definida'  

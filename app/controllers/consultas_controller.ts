@@ -96,7 +96,7 @@ export default class ConsultasController {
       const paciente = await Paciente.query()
         .where('userId', usuario.id)
         .first()
-      
+
       if (!paciente) {
         return response.notFound('Perfil paciente não encontrado')
       }
@@ -108,7 +108,6 @@ export default class ConsultasController {
         })
         .orderBy('data', 'desc')
         .orderBy('hora', 'desc')
-      
       return response.ok({
         consultas: consultas
       })
